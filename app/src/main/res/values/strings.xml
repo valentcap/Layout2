@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Layout2</string>
+    <string name="btn_submit">LOGIN</string>
+    <string name="title_activity_home_page">activity_home_page</string>
+    <string name="deskripsi">Sebuah deskripsi singkat di dalam aplikasi yang tidak jelas.
+        Deskripsi ini saya buat untuk mengisi activity about dimana activity ini
+        berisi tentang sebuah deskripsi, entah tentang apa.
+    </string>
+</resources>

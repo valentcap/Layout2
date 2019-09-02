@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#ffffff">
+
+
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_submit" />
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not a member?"/>
+        <TextView
+            android:id="@+id/notMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:text="Sign up now."/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
