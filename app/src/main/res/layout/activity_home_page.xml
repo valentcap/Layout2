@@ -5,60 +5,65 @@
     android:gravity="center_horizontal"
     android:background="#00da00" >
 
-    <TextView
-        android:id="@+id/homepage"
+    <!--<TextView-->
+        <!--android:id="@+id/homepage"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:text="HOMEPAGE GAN"-->
+        <!--android:textSize="30dp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/infoEmail"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Email: "-->
+        <!--android:layout_below="@id/homepage"-->
+        <!--android:textSize="20dp"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/isiEmail"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="valent.christian@ti.ukdw.ac.id"-->
+        <!--android:layout_below="@id/homepage"-->
+        <!--android:layout_toRightOf="@id/infoEmail"-->
+        <!--android:textSize="20dp"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/infoNama"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Nama: "-->
+        <!--android:layout_below="@id/infoEmail"-->
+        <!--android:textSize="20dp"-->
+        <!--/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/isiNama"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Valent Christian Adiputra"-->
+        <!--android:layout_below="@id/infoEmail"-->
+        <!--android:layout_toRightOf="@id/infoNama"-->
+        <!--android:textSize="20dp"-->
+        <!--/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/keAbout"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/infoNama"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:onClick="toAbout"-->
+        <!--android:text="About"/>-->
+
+    <FrameLayout
+        android:id="@+id/fragment_pakai_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="HOMEPAGE GAN"
-        android:textSize="30dp" />
-
-    <TextView
-        android:id="@+id/infoEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email: "
-        android:layout_below="@id/homepage"
-        android:textSize="20dp"
-        />
-
-    <TextView
-        android:id="@+id/isiEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="valent.christian@ti.ukdw.ac.id"
-        android:layout_below="@id/homepage"
-        android:layout_toRightOf="@id/infoEmail"
-        android:textSize="20dp"
-        />
-
-    <TextView
-        android:id="@+id/infoNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nama: "
-        android:layout_below="@id/infoEmail"
-        android:textSize="20dp"
-        />
-
-    <TextView
-        android:id="@+id/isiNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valent Christian Adiputra"
-        android:layout_below="@id/infoEmail"
-        android:layout_toRightOf="@id/infoNama"
-        android:textSize="20dp"
-        />
-
-    <Button
-        android:id="@+id/keAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/infoNama"
-        android:layout_alignParentRight="true"
-        android:onClick="toAbout"
-        android:text="About"/>
+        android:layout_height="match_parent"></FrameLayout>
 
 
 </RelativeLayout>

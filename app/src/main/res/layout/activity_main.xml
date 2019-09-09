@@ -58,10 +58,7 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
 
-    <FrameLayout
-        android:id="@+id/fragment_pakai_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+
 
 
 </LinearLayout>

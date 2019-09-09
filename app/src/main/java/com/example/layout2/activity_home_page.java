@@ -20,8 +20,8 @@ public class activity_home_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-
         Intent intent = getIntent();
+        prepareFragment();
 
 
     }
@@ -31,6 +31,11 @@ public class activity_home_page extends AppCompatActivity {
         Intent intent = new Intent(this, About.class);
         //EditText editText = (EditText) findViewById(R.id.txtEmail);
         startActivity(intent);
+    }
+
+    private void prepareFragment(){
+        this.getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_pakai_menu, new fragment_menu()).commit();
     }
 
 }
