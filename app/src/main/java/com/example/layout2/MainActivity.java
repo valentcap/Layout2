@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button login;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.txtEmail);
         password = findViewById(R.id.txtPassword);
         login = findViewById(R.id.btnSubmit);
-
+        prepareFragment();
 
     }
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             Intent pindah = new Intent( this, activity_home_page.class);
             finish();
             startActivity(pindah);
+            move();
         }
     }
 
@@ -50,5 +52,20 @@ public class MainActivity extends AppCompatActivity {
         return email.equals("valent.christian@ti.ukdw.ac.id") && password.equals("abcd");
     }
 
+    private void prepareFragment(){
+        this.getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_pakai_menu, new fragment_menu()).commit();
+    }
+
+    private void move(){
+        back = findViewById(R.id.button_fragment);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent about = new Intent(MainActivity.this, About.class);
+                startActivity(about);
+            }
+        });
+    }
 
 }

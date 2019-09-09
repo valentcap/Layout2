@@ -35,7 +35,6 @@
         android:onClick="Loginbaru"
         android:text="@string/btn_submit" />
 
-
     <LinearLayout android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:orientation="vertical">
@@ -52,6 +51,17 @@
             android:text="Sign up now."/>
 
     </LinearLayout>
+
+    <!--<fragment-->
+        <!--android:name="com.example.layout2.fragment_menu"-->
+        <!--android:id="@+id/fragment_menu"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <FrameLayout
+        android:id="@+id/fragment_pakai_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 
 
 </LinearLayout>
