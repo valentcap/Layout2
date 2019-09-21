@@ -76,12 +76,12 @@
         <!--android:layout_height="match_parent" />-->
 
 
-    //TAB LAYOUT MASIH BIKIN ERROR <FIXED>
+    //TAB LAYOUT MASIH BIKIN ERROR FIXED
     <!--<android.support.design.widget.TabLayout-->
         <!--android:id="@+id/tab_layout"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content" />-->
-    //tanpa tab layout hanya keluar 1 fragment yang pertama <sudah muncul 2 fragmenr (y)>
+    //tanpa tab layout hanya keluar 1 fragment yang pertama sudah muncul 2 fragment (y)
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
