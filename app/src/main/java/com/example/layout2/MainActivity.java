@@ -33,9 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void Loginbaru(View view) {
         if(check(String.valueOf(email.getText()), String.valueOf(password.getText()))){
-            Intent pindah = new Intent( this, activity_home_page.class);
+            Intent intent = new Intent( this, activity_home_page.class);
+            Bundle b = new Bundle();
+            b.putString("Email: ", email.getText().toString());
+            intent.putExtras(b);
             finish();
-            startActivity(pindah);
+            startActivity(intent);
         }
     }
 
