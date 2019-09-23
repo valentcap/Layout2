@@ -3,7 +3,10 @@ package com.example.layout2;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -23,6 +26,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,8 +34,10 @@ import android.widget.Toast;
 
 public class activity_home_page extends AppCompatActivity {
 
+    private static final String TAG = "activity_home_page";
     private boolean registeredreceiver;
     private WifiManager wifiManager;
+    JobScheduler mJobScheduler;
 
 
 
@@ -79,9 +85,9 @@ public class activity_home_page extends AppCompatActivity {
         //tes wifi
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
-
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        //tidak pakai fragment sementara
+        //ViewPager viewPager = findViewById(R.id.view_pager);
+        //viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
         Bundle b = intent.getExtras();
         String dataemail = b.getString("Email: ", "");
@@ -89,6 +95,7 @@ public class activity_home_page extends AppCompatActivity {
 
         //channel notifikasi
         createNotificationChannel();
+
 
         //cek wifi manual
 //        if(wifiManager.isWifiEnabled()){
@@ -171,6 +178,30 @@ public class activity_home_page extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    public void scheduleJob(View v){
+        ComponentName cn = new ComponentName(this, MyJobService.class);
+        JobInfo info = new JobInfo.Builder(123, cn)
+                .setRequiresCharging(true)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                //.setPersisted(true)
+                .setPeriodic(15*60*1000)
+                .build();
+
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = scheduler.schedule(info);
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d(TAG, "Job scheduled");
+        } else {
+            Log.d(TAG, "Job scheduling failed");
+        }
+    }
+
+    public void cancelJob(View v) {
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        scheduler.cancel(123);
+        Log.d(TAG, "Job cancelled");
     }
 
 
