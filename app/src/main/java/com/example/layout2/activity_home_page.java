@@ -204,6 +204,13 @@ public class activity_home_page extends AppCompatActivity {
         Log.d(TAG, "Job cancelled");
     }
 
+    //ke recycler view
+    public void toRecycler(View view) {
+        Intent intent = new Intent(this, activity_rv.class);
+        //EditText editText = (EditText) findViewById(R.id.txtEmail);
+        startActivity(intent);
+    }
+
 
     //tugas sebelumnya
 //    public void toAbout(View view) {

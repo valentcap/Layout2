@@ -15,6 +15,9 @@
             android:name=".About"
             android:parentActivityName=".activity_home_page" />
         <activity
+            android:name=".activity_rv"
+            android:parentActivityName=".activity_home_page" />
+        <activity
             android:name=".activity_home_page"
             android:label="@string/title_activity_home_page"
             android:parentActivityName=".MainActivity"
@@ -27,11 +30,10 @@
             </intent-filter>
         </activity>
 
-        //service
-        <service
-            android:name=".MyJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            />
+        <!--<service-->
+            <!--android:name=".MyJobService"-->
+            <!--android:permission="android.permission.BIND_JOB_SERVICE"-->
+            <!--/>-->
 
     </application>
 
