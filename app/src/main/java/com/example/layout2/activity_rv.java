@@ -16,6 +16,7 @@ public class activity_rv extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<String> dataSet;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

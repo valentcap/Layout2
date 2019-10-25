@@ -13,12 +13,11 @@ import androidx.fragment.app.Fragment;
 
 public class fragment_menu2 extends Fragment {
 
-
+    private EditText nim;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
 
 

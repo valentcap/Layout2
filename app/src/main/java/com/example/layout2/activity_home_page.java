@@ -24,6 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
@@ -33,6 +35,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class activity_home_page extends AppCompatActivity {
 
     private static final String TAG = "activity_home_page";
@@ -41,11 +45,11 @@ public class activity_home_page extends AppCompatActivity {
     JobScheduler mJobScheduler;
     Button btnSubmit;
     DBHelper mydb;
-    EditText nim, nama, prodi;
-
-
-
-
+    EditText nim, nama, prodi, hapus;
+    private RecyclerView rvView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<String> dataSet;
 
 
     //broadcast receiver di kelas
@@ -94,6 +98,8 @@ public class activity_home_page extends AppCompatActivity {
 
 
 
+
+
         //tes wifi
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -111,9 +117,22 @@ public class activity_home_page extends AppCompatActivity {
 
         //DATABASE
         mydb = new DBHelper(this);
-        nim = (EditText)findViewById(R.id.nimMhs);
-        nama = (EditText) findViewById(R.id.namaMhs);
-        prodi = (EditText) findViewById(R.id.prodiMhs);
+
+        //ambil dataSet dari db
+        dataSet = mydb.getAllMahasiswa();
+
+
+        //recycle untuk database
+        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+        rvView.setHasFixedSize(true);
+
+
+        layoutManager = new LinearLayoutManager(this);
+        rvView.setLayoutManager(layoutManager);
+
+        adapter = new RecyclerViewAdapter(dataSet);
+        rvView.setAdapter(adapter);
+
 
         //channel notifikasi
         createNotificationChannel();
@@ -234,6 +253,9 @@ public class activity_home_page extends AppCompatActivity {
 
     public void tambahMahasiswa(View view){
         //DATABASE
+        nim = (EditText) findViewById(R.id.nimMhs);
+        nama = (EditText) findViewById(R.id.namaMhs);
+        prodi = (EditText) findViewById(R.id.prodiMhs);
 
         String nimMasuk = nim.getText().toString();
         String namaMasuk = nama.getText().toString();
@@ -244,6 +266,47 @@ public class activity_home_page extends AppCompatActivity {
         nim.setText("");
         nama.setText("");
         prodi.setText("");
+
+        //ambil dataSet dari db
+        dataSet = mydb.getAllMahasiswa();
+
+
+        //recycle untuk database
+        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+        rvView.setHasFixedSize(true);
+
+
+        layoutManager = new LinearLayoutManager(this);
+        rvView.setLayoutManager(layoutManager);
+
+        adapter = new RecyclerViewAdapter(dataSet);
+        rvView.setAdapter(adapter);
+
+    }
+
+    public void hapusMahasiswa(View view){
+        //DATABASE
+        hapus = (EditText) findViewById(R.id.namaHapusMhs);
+
+
+        String namaHapus = hapus.getText().toString();
+
+        mydb.deleteMahasiswa(namaHapus);
+
+        //ambil dataSet dari db
+        dataSet = mydb.getAllMahasiswa();
+
+
+        //recycle untuk database
+        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+        rvView.setHasFixedSize(true);
+
+
+        layoutManager = new LinearLayoutManager(this);
+        rvView.setLayoutManager(layoutManager);
+
+        adapter = new RecyclerViewAdapter(dataSet);
+        rvView.setAdapter(adapter);
 
     }
 

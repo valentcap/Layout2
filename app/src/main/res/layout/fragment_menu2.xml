@@ -34,6 +34,18 @@
         android:layout_height="wrap_content"
         android:onClick="tambahMahasiswa"
         android:text="Tambah Data" />
+    <EditText
+        android:id="@+id/namaHapusMhs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama yang akan dihapus"
+        android:inputType="text"/>
+    <Button
+        android:id="@+id/hapusMhs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="hapusMahasiswa"
+        android:text="Hapus Data"/>
 
     <!--<androidx.recyclerview.widget.RecyclerView-->
         <!--android:id="@+id/rv_main"-->
