@@ -28,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,12 @@ public class activity_home_page extends AppCompatActivity {
     private boolean registeredreceiver;
     private WifiManager wifiManager;
     JobScheduler mJobScheduler;
+    Button btnSubmit;
+    DBHelper mydb;
+    EditText nim, nama, prodi;
+
+
+
 
 
 
@@ -81,17 +88,32 @@ public class activity_home_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         Intent intent = getIntent();
+        btnSubmit = (Button) findViewById(R.id.tambahMahasiswa);
+
+
+
+
 
         //tes wifi
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         //tidak pakai fragment sementara
-        //ViewPager viewPager = findViewById(R.id.view_pager);
-        //viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+        //Bundle b = intent.getExtras();
+        //String dataemail = b.getString("Email: ", "");
+        //Toast.makeText(getApplicationContext(),"Selamat datang, "+dataemail, Toast.LENGTH_SHORT).show();
 
-        Bundle b = intent.getExtras();
-        String dataemail = b.getString("Email: ", "");
-        Toast.makeText(getApplicationContext(),"Selamat datang, "+dataemail, Toast.LENGTH_SHORT).show();
+
+
+
+        //DATABASE
+        mydb = new DBHelper(this);
+        nim = (EditText)findViewById(R.id.nimMhs);
+        nama = (EditText) findViewById(R.id.namaMhs);
+        prodi = (EditText) findViewById(R.id.prodiMhs);
 
         //channel notifikasi
         createNotificationChannel();
@@ -104,8 +126,7 @@ public class activity_home_page extends AppCompatActivity {
 //            System.out.println("Wifi is Disabled");
 //        }
 
-//        TabLayout tabLayout = findViewById(R.id.tab_layout);
-//        tabLayout.setupWithViewPager(viewPager);
+
 
         //prepareFragment();
 
@@ -209,6 +230,21 @@ public class activity_home_page extends AppCompatActivity {
         Intent intent = new Intent(this, activity_rv.class);
         //EditText editText = (EditText) findViewById(R.id.txtEmail);
         startActivity(intent);
+    }
+
+    public void tambahMahasiswa(View view){
+        //DATABASE
+
+        String nimMasuk = nim.getText().toString();
+        String namaMasuk = nama.getText().toString();
+        String prodimasuk = prodi.getText().toString();
+
+        mydb.insertMahasiswa(nimMasuk, namaMasuk, prodimasuk);
+
+        nim.setText("");
+        nama.setText("");
+        prodi.setText("");
+
     }
 
 

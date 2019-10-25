@@ -82,28 +82,28 @@
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content" />-->
     <!--tanpa tab layout hanya keluar 1 fragment yang pertama sudah muncul 2 fragment (y)-->
-    <Button
-        android:id="@+id/schedule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="scheduleJob"
-        android:text="Schedule Job" />
+    <!--<Button-->
+        <!--android:id="@+id/schedule"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:onClick="scheduleJob"-->
+        <!--android:text="Schedule Job" />-->
 
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/schedule"
-        android:onClick="cancelJob"
-        android:text="Cancel Job" />
+    <!--<Button-->
+        <!--android:id="@+id/cancel"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/schedule"-->
+        <!--android:onClick="cancelJob"-->
+        <!--android:text="Cancel Job" />-->
 
-    <Button
-        android:id="@+id/toRecycler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cancel"
-        android:onClick="toRecycler"
-        android:text="Daftar Film" />
+    <!--<Button-->
+        <!--android:id="@+id/toRecycler"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/cancel"-->
+        <!--android:onClick="toRecycler"-->
+        <!--android:text="Daftar Film" />-->
 
 
 
@@ -111,8 +111,8 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/cancel">
+        android:layout_height="match_parent">
+        <!--android:layout_below="@id/cancel">-->
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout"

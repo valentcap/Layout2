@@ -8,12 +8,39 @@
         android:id="@+id/textView_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment 2" />
+        android:text="Tambah Data Mahasiswa" />
 
+    <EditText
+    android:id="@+id/nimMhs"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="NIM Mahasiswa"
+    android:inputType="text" />
+    <EditText
+        android:id="@+id/namaMhs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Mahasiswa"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/prodiMhs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Prodi Mahasiswa"
+        android:inputType="text" />
     <Button
-        android:id="@+id/button_fragment"
+        android:id="@+id/tambahMahasiswa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tombol Fragment2" />
+        android:onClick="tambahMahasiswa"
+        android:text="Tambah Data" />
+
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+        <!--android:id="@+id/rv_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scrollbars="vertical" />-->
+
+
 
 </LinearLayout>
