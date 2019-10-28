@@ -12,7 +12,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         childFragments = new Fragment[]{
                 new fragment_menu(),
-                new fragment_menu2()
+                new fragment_menu2(),
+                new fragment_firebase()
         };
     }
 
