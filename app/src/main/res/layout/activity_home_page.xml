@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="#00da00" >
+    android:background="#ffffff" >
 
     <!--<TextView-->
         <!--android:id="@+id/homepage"-->
@@ -106,12 +106,19 @@
         <!--android:onClick="toRecycler"-->
         <!--android:text="Daftar Film" />-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_mahasiswa"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_mahasiswa"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="2"-->
+<!--        android:scrollbars="vertical" />-->
+
+    <ListView
+        android:id="@+id/listViewMatakuliah"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+    </ListView>
 
 
     <androidx.viewpager.widget.ViewPager

@@ -123,15 +123,17 @@ public class activity_home_page extends AppCompatActivity {
 
 
         //recycle untuk database
-        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
-        rvView.setHasFixedSize(true);
+//        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+//        rvView.setHasFixedSize(true);
+//
+//
+//        layoutManager = new LinearLayoutManager(this);
+//        rvView.setLayoutManager(layoutManager);
+//
+//        adapter = new RecyclerViewAdapter(dataSet);
+//        rvView.setAdapter(adapter);
 
 
-        layoutManager = new LinearLayoutManager(this);
-        rvView.setLayoutManager(layoutManager);
-
-        adapter = new RecyclerViewAdapter(dataSet);
-        rvView.setAdapter(adapter);
 
 
         //channel notifikasi
@@ -272,15 +274,15 @@ public class activity_home_page extends AppCompatActivity {
 
 
         //recycle untuk database
-        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
-        rvView.setHasFixedSize(true);
-
-
-        layoutManager = new LinearLayoutManager(this);
-        rvView.setLayoutManager(layoutManager);
-
-        adapter = new RecyclerViewAdapter(dataSet);
-        rvView.setAdapter(adapter);
+//        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+//        rvView.setHasFixedSize(true);
+//
+//
+//        layoutManager = new LinearLayoutManager(this);
+//        rvView.setLayoutManager(layoutManager);
+//
+//        adapter = new RecyclerViewAdapter(dataSet);
+//        rvView.setAdapter(adapter);
 
     }
 
@@ -298,15 +300,15 @@ public class activity_home_page extends AppCompatActivity {
 
 
         //recycle untuk database
-        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
-        rvView.setHasFixedSize(true);
-
-
-        layoutManager = new LinearLayoutManager(this);
-        rvView.setLayoutManager(layoutManager);
-
-        adapter = new RecyclerViewAdapter(dataSet);
-        rvView.setAdapter(adapter);
+//        rvView = (RecyclerView) findViewById(R.id.rv_mahasiswa);
+//        rvView.setHasFixedSize(true);
+//
+//
+//        layoutManager = new LinearLayoutManager(this);
+//        rvView.setLayoutManager(layoutManager);
+//
+//        adapter = new RecyclerViewAdapter(dataSet);
+//        rvView.setAdapter(adapter);
 
     }
 
