@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -20,6 +22,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 public class fragment_firebase extends Fragment {
     private EditText namaMatakuliah;
@@ -29,12 +35,17 @@ public class fragment_firebase extends Fragment {
     private Button buttonHapus;
     private Button buttonUpdate;
     private FirebaseFirestore firebaseFirestoreDb;
+    private RecyclerView rv;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager lm;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_firebase, container, false);
+        rv = (RecyclerView) view.findViewById(R.id.recycle_matakuliah);
         namaMatakuliah = view.findViewById(R.id.namaMatakuliah);
         sksMatakuliah = view.findViewById(R.id.sksMatakuliah);
         dosenMatakuliah = view.findViewById(R.id.dosenMatakuliah);
@@ -109,29 +120,29 @@ public class fragment_firebase extends Fragment {
     }
 
     private void getDataMatakuliah() {
-        DocumentReference docRef = firebaseFirestoreDb.collection("Daftar Matakuliah").document(
-                "yndPDgDKi53J2TPU7Wek");
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-//                        Matakuliah mtk = document.toObject(Matakuliah.class);
-//                        namaMatakuliah.setText(mtk.getNama());
-//                        sksMatakuliah.setText(mtk.getSks());
-//                        dosenMatakuliah.setText(mtk.getDosen());
-                        Log.d("TAG", "DocumentSnapshot data: " + task.getResult().getData());
-                    } else {
-                        Toast.makeText(requireActivity(), "Document tidak ditemukan",
-                                Toast.LENGTH_SHORT).show();
+        final ArrayList<Matakuliah> dataMtk = new ArrayList<Matakuliah>();
+        Task<QuerySnapshot> docRef = firebaseFirestoreDb.collection("Daftar Matakuliah")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot doc : task.getResult()){
+                                Matakuliah m = new Matakuliah();
+                                m.setNama(doc.get("nama").toString());
+                                m.setDosen(doc.get("dosen").toString());
+                                m.setSks(Integer.parseInt(doc.get("sks").toString()));
+                                dataMtk.add(m);
+                            }
+                            rv.setHasFixedSize(true);
+                            rv.setNestedScrollingEnabled(false);
+                            lm = new LinearLayoutManager(getContext());
+                            rv.setLayoutManager(lm);
+                            adapter = new MataKuliahAdapter(dataMtk);
+                            rv.setAdapter(adapter);
+                        }
                     }
-                } else {
-                    Toast.makeText(requireActivity(), "Document error : " + task.getException(),
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+                });
     }
 
     private void deleteDataMatakuliah() {

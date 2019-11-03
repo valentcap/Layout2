@@ -10,6 +10,9 @@ public class Matakuliah {
         this.sks = sks;
         this.dosen = dosen;
     }
+    public Matakuliah(){
+
+    }
 
     public String getNama() {
         return nama;
